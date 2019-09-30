@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const searchController = require("../../controllers/scrapeController");
+const searchController = require("../../controllers/searchController");
 
 router.route("/")
     .get(searchController.scrape);
