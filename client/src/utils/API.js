@@ -2,7 +2,6 @@ import axios from "axios";
 
 export default {
     searchArticles: function (queryData) {
-        console.log(queryData)
         return axios.get("/api/search/", queryData);
     },
 
@@ -14,8 +13,8 @@ export default {
         return axios.get("/api/article/" + id);
     },
 
-    saveArticle: (id, saveData) => {
-        return axios.post("/api/article/" + id, saveData);
+    saveArticle: (saveData) => {
+        return axios.post("/api/article/" + saveData._id, saveData);
     },
 
     deleteArticle: (id) => {

@@ -12,6 +12,7 @@ module.exports = {
         
         axios.get(queryURL).then(res => {
             var $ = cheerio.load(res.data);
+            console.log(res.data)
             var articleArray = [];
             
             $(".css-138we14").each((i, element) => {
@@ -29,7 +30,6 @@ module.exports = {
                     articleArray.push(article);
                 }
             });
-
             response.json(articleArray);
 
         }).catch(error => console.log(error));

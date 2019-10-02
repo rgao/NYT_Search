@@ -17,6 +17,7 @@ module.exports = {
     },
 
     create: function(request, response) {
+        console.log(request.body)
         db.Article
         .create(request.body)
         .then(dbArticle => response.json(dbArticle))

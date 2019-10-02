@@ -2,21 +2,30 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const articleSchema = new Schema({
-    title: { type: String, 
-        required: true },
-        
-    date: { type: Date, 
-        required: false },
+    title: {
+        type: String,
+        required: true
+    },
 
-    url: { type: String, 
-        required: true },
+    date: {
+        type: Date,
+        required: false
+    },
 
-    description: { type: String, 
-        required: true, 
-        default: false },
+    url: {
+        type: String,
+        required: true
+    },
 
-    writer: { type: String,
-        required: true }
+    description: {
+        type: String,
+        required: true,
+    },
+
+    writer: {
+        type: String,
+        required: true
+    }
 });
 
 const Article = mongoose.model("Article", articleSchema);

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./nav.css"
+import "./Nav.css"
 
 function Nav() {
   return (
@@ -9,7 +9,7 @@ function Nav() {
         New York Times Article Search
       </Link>
 
-      <Link class="nav-link" to={"/saved"}>
+      <Link className="nav-link" to={"/saved"}>
         Saved Articles
       </Link>
     </nav>
