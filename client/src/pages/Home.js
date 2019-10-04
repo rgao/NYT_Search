@@ -22,15 +22,17 @@ class Home extends Component {
     handleSubmit = event => {
         event.preventDefault();
 
-        const topic = this.state.topic;
-        const startDate = this.state.startDate;
-        const endDate = this.state.endDate;
+        let topic = this.state.topic;
+        let startDate = this.state.startDate;
+        let endDate = this.state.endDate;
 
-        if (this.state.startDate !== "" && this.state.endDate !== "") {
-            const query = { topic: topic, startDate: startDate.replace(/-/g, ""), endDate: endDate.replace(/-/g, "") }
-            console.log(query)
-            API.searchArticles(query)
-                .then(response => this.setState({ articles: response.data, topic: "", startDate: "", endDate: "" }))
+        if (startDate !== "" && endDate !== "") {
+
+            startDate = startDate.replace(/-/g, "");
+            endDate = endDate.replace(/-/g, "");
+            API.searchArticles(topic, startDate, endDate)
+                .then(response => this.setState({ articles: response.data, topic: "", startDate: "", endDate: "" }), response => console.log(response.data))
+                // .then(response => console.log(response.data))
                 .catch(error => console.log(error));
         }
     }

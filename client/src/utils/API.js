@@ -1,8 +1,8 @@
 import axios from "axios";
 
 export default {
-    searchArticles: function (queryData) {
-        return axios.get("/api/search/", queryData);
+    searchArticles: (topic, startDate, endDate) => {
+        return axios.get(`/api/search/?end=${endDate}&topic=${topic}&start=${startDate}`);
     },
 
     getArticles: () => {

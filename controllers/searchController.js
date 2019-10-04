@@ -1,26 +1,20 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-module.exports = {
-    scrape: (request, response) => {
-        console.log(request.body);
-        console.log(request.query);
+module.exports = (request, response) => {
 
-        const { topic, startDate, endDate } = request.body;
+        const { endDate, topic, startDate } = request.query;
 
-        const queryURL = "https://www.nytimes.com/search?endDate=" + endDate + "&query=" + topic + "&sort=newest&startDate=" + startDate;
+        const queryURL = `https://www.nytimes.com/search?endDate="${endDate}&query=${topic}&sort=newest&startDate=${startDate}`;
         
         axios.get(queryURL).then(res => {
             var $ = cheerio.load(res.data);
-            console.log(res.data)
             var articleArray = [];
             
             $(".css-138we14").each((i, element) => {
-                console.log(i);
                 var article = {};
 
                 article.title = $(element).children("a").children("h4").text();
-                console.log(article.title)
                 article.date = $(element).children("time").text();
                 article.url = "https://www.nytimes.com" + $(element).children("a").attr("href");
                 article.description = $(element).find(".css-1dwgixl").text();
@@ -34,4 +28,3 @@ module.exports = {
 
         }).catch(error => console.log(error));
     }
-}
