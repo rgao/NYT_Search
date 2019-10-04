@@ -7,11 +7,6 @@ const articleSchema = new Schema({
         required: true
     },
 
-    date: {
-        type: Date,
-        required: false
-    },
-
     url: {
         type: String,
         required: true
@@ -22,7 +17,12 @@ const articleSchema = new Schema({
         required: true,
     },
 
-    writer: {
+    image: {
+        type: String,
+        required: false
+    },
+
+    author: {
         type: String,
         required: true
     }

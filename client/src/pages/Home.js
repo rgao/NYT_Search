@@ -72,8 +72,8 @@ class Home extends Component {
                             title={article.title}
                             url={article.url}
                             description={article.description}
-                            author={article.writer}
-                            date={article.date}
+                            author={article.author}
+                            image={article.image}
                             save={() => this.handleSave(i)}
                             key={i} />
                     ))}

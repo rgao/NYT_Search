@@ -15,10 +15,10 @@ module.exports = (request, response) => {
                 var article = {};
 
                 article.title = $(element).children("a").children("h4").text();
-                article.date = $(element).children("time").text();
                 article.url = "https://www.nytimes.com" + $(element).children("a").attr("href");
+                article.image = $(element).find("img").attr("src");
                 article.description = $(element).find(".css-1dwgixl").text();
-                article.writer = $(element).find(".css-15w69y9").text();
+                article.author = $(element).find(".css-15w69y9").text();
 
                 if (articleArray.length < 5) {
                     articleArray.push(article);

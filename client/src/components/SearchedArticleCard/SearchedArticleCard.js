@@ -6,7 +6,7 @@ class SearchedArticleCard extends Component {
     render() {
         return (
             <Row>
-                <Col size="3">{this.props.date}</Col>
+                <Col size="3"><img src={this.props.image} /></Col>
 
                 <Col>
                     <header href={this.props.url}>{this.props.title}</header>
