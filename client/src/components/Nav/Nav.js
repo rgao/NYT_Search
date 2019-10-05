@@ -4,7 +4,7 @@ import "./Nav.css"
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-info">
       <Link to={"/"} className="navbar-brand">
         New York Times Article Search
       </Link>

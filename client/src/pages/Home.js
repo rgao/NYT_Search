@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/API.js";
-import { Button, Row, Col } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import SearchedArticleCard from "../components/SearchedArticleCard/SearchedArticleCard.js"
 
 class Home extends Component {
@@ -37,9 +37,9 @@ class Home extends Component {
         }
     }
 
-    handleSave = i => {
-        API.saveArticle(this.state.article[i])
-            .then(response => console.log(response))
+    handleSave = article => {
+        API.saveArticle(article)
+            .then(response => console.log(response.data))
             .catch(error => console.log(error))
     }
 
@@ -50,7 +50,7 @@ class Home extends Component {
                     <header>Search Articles</header>
                     <div className="form-group">
                         <label>Topic</label>
-                        <input name="topic" value={this.state.topic} className="form-control" onChange={event => this.handleInputChange(event)} type="text" placeholder="Collusion" />
+                        <input name="topic" value={this.state.topic} className="form-control" onChange={event => this.handleInputChange(event)} type="text" placeholder="2020" />
                     </div>
 
                     <div className="form-group">
@@ -74,7 +74,7 @@ class Home extends Component {
                             description={article.description}
                             author={article.author}
                             image={article.image}
-                            save={() => this.handleSave(i)}
+                            save={() => this.handleSave(article)}
                             key={i} />
                     ))}
                 </div>

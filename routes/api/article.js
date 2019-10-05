@@ -3,7 +3,7 @@ const articleController = require("../../controllers/articleController");
 
 router.route("/")
     .get(articleController.findAll)
-    .post(articleController.create);
+    .post(articleController.save);
 
 router.route("/:id")
     .get(articleController.findOne)

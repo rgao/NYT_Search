@@ -9,15 +9,16 @@ export default {
         return axios.get("/api/article/");
     },
 
-    getArticle: (id) => {
+    saveArticle: saveData => {
+        console.log(saveData);
+        return axios.post("/api/article/", saveData);
+    },
+
+    deleteArticle: id => {
+        return axios.delete("/api/article/" + id);
+    },
+
+    getArticle: id => {
         return axios.get("/api/article/" + id);
     },
-
-    saveArticle: (saveData) => {
-        return axios.post("/api/article/" + saveData._id, saveData);
-    },
-
-    deleteArticle: (id) => {
-        return axios.delete("/api/articles/" + id);
-    }
 };
