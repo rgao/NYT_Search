@@ -5,16 +5,18 @@ import SavedArticleCard from "../components/SavedArticleCard/SavedArticleCard.js
 
 class Saved extends Component {
     state = {
-        savedArticles: []
+        savedArticles: [],
+        message: ""
     };
 
     componentDidMount() {
-        this.getSavedArticles();
+        this.getSavedArticles()
     }
 
     getSavedArticles = () => {
         API.getArticles()
             .then(response => this.setState({ savedArticles: response.data }))
+            .then(this.messageCheck())
             .catch(error => console.log(error));
     }
 
@@ -25,9 +27,25 @@ class Saved extends Component {
             .catch(error => console.log(error));
     }
 
+    messageCheck() {
+        console.log(this.state.savedArticles)
+
+        if (this.state.savedArticles.length == 0) {
+            this.setState({message: "There are no saved articles."});
+        } else {
+            this.setState({message: ""});
+        }
+    }
+
     render() {
         return (
             <div>
+                <div>
+                    <Row>
+                        <Col size="8">{this.state.message}
+                        </Col>
+                    </Row>
+                </div>
                 {this.state.savedArticles.map((article, i) => (
                     <SavedArticleCard
                     title={article.title}

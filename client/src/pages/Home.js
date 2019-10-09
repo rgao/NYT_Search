@@ -27,11 +27,11 @@ class Home extends Component {
         let endDate = this.state.endDate;
 
         if (startDate !== "" && endDate !== "") {
-
             startDate = startDate.replace(/-/g, "");
             endDate = endDate.replace(/-/g, "");
+
             API.searchArticles(topic, startDate, endDate)
-                .then(response => this.setState({ articles: response.data, topic: "", startDate: "", endDate: "" }), response => console.log(response.data))
+                .then(response => this.setState({ articles: response.data, topic: "", startDate: "", endDate: "" }))
                 // .then(response => console.log(response.data))
                 .catch(error => console.log(error));
         }
