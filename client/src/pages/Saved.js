@@ -11,23 +11,22 @@ class Saved extends Component {
 
     componentDidMount() {
         this.getSavedArticles()
-    }
+    };
 
     getSavedArticles = () => {
         API.getArticles()
-            .then(response => this.setState({ savedArticles: response.data }))
-            .then(this.messageCheck())
+            .then(response => this.setState({ savedArticles: response.data }, () => this.checkArticles()))
             .catch(error => console.log(error));
-    }
+    };
 
     handleDelete = (id) => {
         console.log(id)
         API.deleteArticle(id)
-            .then(this.getSavedArticles())
+            .then(() => this.getSavedArticles())
             .catch(error => console.log(error));
-    }
+    };
 
-    messageCheck() {
+    checkArticles() {
         console.log(this.state.savedArticles)
 
         if (this.state.savedArticles.length == 0) {
@@ -35,7 +34,7 @@ class Saved extends Component {
         } else {
             this.setState({message: ""});
         }
-    }
+    };
 
     render() {
         return (
@@ -58,7 +57,7 @@ class Saved extends Component {
                 ))}
             </div>
         );
-    }
-}
+    };
+};
 
 export default Saved;
