@@ -1,19 +1,21 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css"
 
-function Nav() {
-  return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-info">
-      <Link to={"/"} className="navbar-brand">
-        New York Times Article Search
+class Nav extends Component {
+  render() {
+    return (
+      <nav className="navbar navbar-expand-lg navbar-dark bg-info">
+        <Link to={"/"} className="navbar-brand">
+          New York Times Article Search
       </Link>
 
-      <Link className="nav-link" to={"/saved"}>
-        Saved Articles
+        <Link className="nav-link" to={"/saved"}>
+          Saved Articles
       </Link>
-    </nav>
-  );
+      </nav>
+    );
+  }
 }
 
 export default Nav;

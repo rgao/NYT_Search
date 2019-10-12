@@ -20,5 +20,5 @@ export default {
 
     getArticle: id => {
         return axios.get("/api/article/" + id);
-    },
+    }
 };

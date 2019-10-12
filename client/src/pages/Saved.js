@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import API from "../utils/API.js";
-import { Button, Row, Col } from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 import SavedArticleCard from "../components/SavedArticleCard/SavedArticleCard.js"
 
 class Saved extends Component {
@@ -29,7 +29,7 @@ class Saved extends Component {
     checkArticles() {
         console.log(this.state.savedArticles)
 
-        if (this.state.savedArticles.length == 0) {
+        if (this.state.savedArticles.length === 0) {
             this.setState({message: "There are no saved articles."});
         } else {
             this.setState({message: ""});
