@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
     searchArticles: (topic, startDate, endDate) => {
-        return axios.get(`/api/search/?end=${endDate}&topic=${topic}&start=${startDate}`);
+        return axios.get(`/api/search/?endDate=${endDate}&topic=${topic}&startDate=${startDate}`);
     },
 
     getArticles: () => {
