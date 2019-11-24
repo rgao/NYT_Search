@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import Nav from "./components/Nav/Nav.js";
-import Home from "./pages/Home.js";
-import Saved from "./pages/Saved.js";
+import Home from "./pages/Home/Home.js";
+import Saved from "./pages/Saved/Saved.js";
 import Footer from "./components/Footer/Footer.js";
 
 class App extends Component {

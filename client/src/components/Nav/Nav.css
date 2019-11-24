@@ -1,4 +1,19 @@
-.nav-link {
-    color: indigo;
+.navbar-header {
+    float: left;
+    width: 100%;
+    font-family: 'Berkshire Swash', cursive;
     font-weight: bold;
+    font-size: 3em;
+    background: -webkit-linear-gradient(white, gray);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-header:hover {
+    text-decoration: none;
+}
+
+.nav-link {
+    font-weight: bold;
+    right: 0
 }

@@ -5,7 +5,29 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url("utils/images/city_bg.jpg");
 }
+
+/* #root {
+  position: relative;
+  background: url("utils/images/city_bg.jpg");
+  background-size: cover;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  z-index: -10
+}
+
+#root-overlay {
+  position: absolute;
+  background-color: rgba(155, 88, 204);
+  opacity: .1;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  z-index: -8;
+} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import API from "../utils/API.js";
+import API from "../../utils/API.js";
 import { Button } from 'react-bootstrap'
-import SearchedArticleCard from "../components/SearchedArticleCard/SearchedArticleCard.js"
+import SearchedArticleCard from "../../components/SearchedArticleCard/SearchedArticleCard.js"
 
 class Home extends Component {
     state = {
@@ -31,6 +31,7 @@ class Home extends Component {
             endDate = endDate.replace(/-/g, "");
 
             API.searchArticles(topic, startDate, endDate)
+                // eslint-disable-next-line
                 .then(response => (this.setState({ articles: response.data, topic: "", startDate: "", endDate: "" }), 
                     console.log(response.data)))
                 .catch(error => console.log(error));

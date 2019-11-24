@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import API from "../utils/API.js";
+import API from "../../utils/API.js";
 import { Row, Col } from 'react-bootstrap'
-import SavedArticleCard from "../components/SavedArticleCard/SavedArticleCard.js"
+import SavedArticleCard from "../../components/SavedArticleCard/SavedArticleCard.js"
 
 class Saved extends Component {
     state = {
