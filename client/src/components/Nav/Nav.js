@@ -9,10 +9,6 @@ class Nav extends Component {
         <Link to={"/"} className="navbar-header text-center">
           New York Times Article Search
         </Link>
-
-        <Link className="nav-link" to={"/saved"}>
-          Saved Articles
-        </Link>
       </nav>
     );
   }

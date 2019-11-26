@@ -1,0 +1,55 @@
+.Home {
+    font-family: 'Berkshire Swash', cursive;
+}
+
+form {
+    width: 30vw;
+    min-width: 343px;
+    background: repeating-linear-gradient(45deg, #666666, #cccccc 30%, #ffffff);
+    border-radius: 2%;
+    opacity: .9;
+    font-family: 'Impact', fantasy;
+}
+
+#search_icon {
+    max-width: 5em;
+    max-height: 5em;
+}
+
+.date-input {
+    display: inline-block;
+    width: 47%;
+}
+
+.btn {
+    width: 80%;
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    font-family: 'Berkshire Swash', cursive;
+}
+
+#query-btn {
+    background: linear-gradient(to bottom right, teal, blue)
+}
+
+#saved-btn {
+    background: linear-gradient(to bottom right, goldenrod, teal)
+}
+
+#query-btn:hover {
+    background: navy
+}
+
+#saved-btn:hover {
+    background: teal;
+    text-decoration: none;
+}
+
+#saved-link {
+    color: black;
+}
+
+#saved-link:hover {
+    text-decoration: none;
+    color: black;
+}

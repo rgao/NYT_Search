@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import API from "../../utils/API.js";
+import { Link } from "react-router-dom";
 import { Button } from 'react-bootstrap'
 import SearchedArticleCard from "../../components/SearchedArticleCard/SearchedArticleCard.js"
+import './Home.css'
+import search from '../../utils/images/search_icon.png'
 
 class Home extends Component {
     state = {
@@ -32,7 +35,7 @@ class Home extends Component {
 
             API.searchArticles(topic, startDate, endDate)
                 // eslint-disable-next-line
-                .then(response => (this.setState({ articles: response.data, topic: "", startDate: "", endDate: "" }), 
+                .then(response => (this.setState({ articles: response.data, topic: "", startDate: "", endDate: "" }),
                     console.log(response.data)))
                 .catch(error => console.log(error));
         }
@@ -46,25 +49,30 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
-                <form>
-                    <header>Search Articles</header>
+            <div className="main">
+                <form className="m-4 p-2">
+                    <header className="text-center mb-3">
+                        <img id="search_icon" src={search} />
+                    </header>
                     <div className="form-group">
                         <label>Topic</label>
-                        <input name="topic" value={this.state.topic} className="form-control" onChange={event => this.handleInputChange(event)} type="text" placeholder="2020" />
+                        <input name="topic" value={this.state.topic} className="form-control" onChange={event => this.handleInputChange(event)} type="text" />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group date-input mr-3">
                         <label>Start at:</label>
-                        <input name="startDate" value={this.state.startDate} className="form-control" onChange={event => this.handleInputChange(event)} type="date" placeholder="11/04/2016" />
+                        <input name="startDate" value={this.state.startDate} className="form-control" onChange={event => this.handleInputChange(event)} type="date" />
                     </div>
 
-                    <div className="form-group">
+                    <div className="form-group date-input">
                         <label>End at:</label>
-                        <input name="endDate" value={this.state.endDate} className="form-control" onChange={event => this.handleInputChange(event)} type="date" placeholder="02/08/2019" />
+                        <input name="endDate" value={this.state.endDate} className="form-control" onChange={event => this.handleInputChange(event)} type="date" />
                     </div>
 
-                    <Button className="btn btn-info" onClick={event => this.handleSubmit(event)}>Search!</Button>
+                    <div className="btn-container text-center mt-2">
+                        <Button className="btn mb-2" id="query-btn" onClick={event => this.handleSubmit(event)}>Query</Button>
+                        <Button className="btn" id="saved-btn"><Link id="saved-link" to={"/saved"}>>> To Saved Articles</Link></Button>
+                    </div>
                 </form>
 
                 <div>
