@@ -22,7 +22,7 @@ module.exports = (request, response) => {
                 article.description = $(element).find(".css-16nhkrn").text();
                 article.author = $(element).find(".css-15w69y9").text();
 
-                if (articleArray.length < 5) {
+                if (articleArray.length < 10) {
                     articleArray.push(article);
                 }
             });

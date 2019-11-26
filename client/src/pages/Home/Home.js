@@ -11,7 +11,8 @@ class Home extends Component {
         articles: [],
         startDate: "",
         endDate: "",
-        topic: ""
+        topic: "",
+        result: ""
     };
 
     handleInputChange = event => {
@@ -34,8 +35,7 @@ class Home extends Component {
             endDate = endDate.replace(/-/g, "");
 
             API.searchArticles(topic, startDate, endDate)
-                // eslint-disable-next-line
-                .then(response => (this.setState({ articles: response.data, topic: "", startDate: "", endDate: "" }),
+                .then(response => (this.setState({ articles: response.data, topic: "", startDate: "", endDate: "", result: "Articles" }),
                     console.log(response.data)))
                 .catch(error => console.log(error));
         }
@@ -49,33 +49,37 @@ class Home extends Component {
 
     render() {
         return (
-            <div className="main">
-                <form className="m-4 p-2">
-                    <header className="text-center mb-3">
-                        <img id="search_icon" src={search} />
-                    </header>
-                    <div className="form-group">
-                        <label>Topic</label>
-                        <input name="topic" value={this.state.topic} className="form-control" onChange={event => this.handleInputChange(event)} type="text" />
-                    </div>
+            <div className="main row">
+                <div className="form-container mt-5 col-12 col-xl-4">
+                    <form className="m-2 p-2 mx-auto">
+                        <header className="text-center mb-3">
+                            <img id="search_icon" src={search} alt="search" />
+                        </header>
+                        <div className="form-group">
+                            <label>Topic</label>
+                            <input name="topic" value={this.state.topic} className="form-control" onChange={event => this.handleInputChange(event)} type="text" />
+                        </div>
 
-                    <div className="form-group date-input mr-3">
-                        <label>Start at:</label>
-                        <input name="startDate" value={this.state.startDate} className="form-control" onChange={event => this.handleInputChange(event)} type="date" />
-                    </div>
+                        <div className="form-group date-input mr-3">
+                            <label>Start at:</label>
+                            <input name="startDate" value={this.state.startDate} className="form-control" onChange={event => this.handleInputChange(event)} type="date" />
+                        </div>
 
-                    <div className="form-group date-input">
-                        <label>End at:</label>
-                        <input name="endDate" value={this.state.endDate} className="form-control" onChange={event => this.handleInputChange(event)} type="date" />
-                    </div>
+                        <div className="form-group date-input">
+                            <label>End at:</label>
+                            <input name="endDate" value={this.state.endDate} className="form-control" onChange={event => this.handleInputChange(event)} type="date" />
+                        </div>
 
-                    <div className="btn-container text-center mt-2">
-                        <Button className="btn mb-2" id="query-btn" onClick={event => this.handleSubmit(event)}>Query</Button>
-                        <Button className="btn" id="saved-btn"><Link id="saved-link" to={"/saved"}>>> To Saved Articles</Link></Button>
-                    </div>
-                </form>
+                        <div className="btn-container text-center mt-2">
+                            <Button className="btn mb-2" id="query-btn" onClick={event => this.handleSubmit(event)}>Query</Button>
+                            <Button className="btn" id="saved-btn"><Link id="saved-link" to={"/saved"}>>> To Saved Articles</Link></Button>
+                        </div>
+                    </form>
+                </div>
 
-                <div>
+                <div className="article-container mx-auto col-11 col-xl-8 mt-3">
+                    <header className="result-title text-center my-3">{this.state.result}</header>
+
                     {this.state.articles.map((article, i) => (
                         <SearchedArticleCard
                             title={article.title}

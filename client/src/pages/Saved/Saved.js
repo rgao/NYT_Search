@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import API from "../../utils/API.js";
-import { Row, Col } from 'react-bootstrap'
+// import { Row, Col } from 'react-bootstrap'
+import { Link } from "react-router-dom";
 import SavedArticleCard from "../../components/SavedArticleCard/SavedArticleCard.js"
+import './Saved.css'
 
 class Saved extends Component {
     state = {
         savedArticles: [],
-        message: ""
+        message: "",
+        query_message: ""
     };
 
     componentDidMount() {
@@ -30,30 +33,33 @@ class Saved extends Component {
         console.log(this.state.savedArticles)
 
         if (this.state.savedArticles.length === 0) {
-            this.setState({message: "There are no saved articles."});
+            this.setState({
+                message: "There are no saved articles.",
+                query_message: ">> Query for articles."
+            });
+
         } else {
-            this.setState({message: ""});
+            this.setState({ message: "" });
         }
     };
 
     render() {
         return (
-            <div>
-                <div>
-                    <Row>
-                        <Col size="8">{this.state.message}
-                        </Col>
-                    </Row>
+            <div className="container">
+                <div className="text-center" id="no-message">
+                    <p className="pt-3">{this.state.message}</p>
+                    <Link to="/">{this.state.query_message}</Link>
                 </div>
+
                 {this.state.savedArticles.map((article, i) => (
                     <SavedArticleCard
-                    title={article.title}
-                    url={article.url}
-                    description={article.description}
-                    author={article.author}
-                    image={article.image}
-                    delete={() => this.handleDelete(article._id)}
-                    key={i} />
+                        title={article.title}
+                        url={article.url}
+                        description={article.description}
+                        author={article.author}
+                        image={article.image}
+                        delete={() => this.handleDelete(article._id)}
+                        key={i} />
                 ))}
             </div>
         );

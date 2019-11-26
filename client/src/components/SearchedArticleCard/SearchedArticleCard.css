@@ -1,0 +1,36 @@
+.article {
+    background: repeating-linear-gradient(45deg, #666666, #cccccc 30%, #ffffff);
+    color: black;
+    box-shadow: 0 1em 1em 0 navy, 0 6px 20px 0 goldenrod;
+    position: relative
+}
+
+.article-img {
+    width: 100%;
+}
+
+#article-title {
+    font-weight: bold;
+}
+
+#article-desc {
+    font-size: .8em;
+}
+
+#article-author {
+    font-size: .75em
+}
+
+.btn-info {
+    background: linear-gradient(to bottom right, green, rgb(64, 0, 128));
+}
+
+.content-col {
+    position: relative;
+}
+
+.save-btn-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
