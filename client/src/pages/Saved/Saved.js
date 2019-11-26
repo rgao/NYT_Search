@@ -9,7 +9,8 @@ class Saved extends Component {
     state = {
         savedArticles: [],
         message: "",
-        query_message: ""
+        query_message: "",
+        saved_message: ""
     };
 
     componentDidMount() {
@@ -35,11 +36,12 @@ class Saved extends Component {
         if (this.state.savedArticles.length === 0) {
             this.setState({
                 message: "There are no saved articles.",
-                query_message: ">> Query for articles."
+                query_message: ">> Query for articles.",
+                saved_message: ""
             });
 
         } else {
-            this.setState({ message: "" });
+            this.setState({ saved_message: "Saved Articles" });
         }
     };
 
@@ -49,6 +51,10 @@ class Saved extends Component {
                 <div className="text-center" id="no-message">
                     <p className="pt-3">{this.state.message}</p>
                     <Link to="/">{this.state.query_message}</Link>
+                </div>
+
+                <div className="text-center mb-2" id="saved-message">
+                    <p>{this.state.saved_message}</p>
                 </div>
 
                 {this.state.savedArticles.map((article, i) => (

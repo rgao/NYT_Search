@@ -3,3 +3,11 @@
     font-weight: bold;
     font-size: 1.5em;
 }
+
+#saved-message {
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 2em;
+    background: -webkit-linear-gradient(silver, goldenrod);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
