@@ -72,7 +72,7 @@ class Home extends Component {
 
                         <div className="btn-container text-center mt-2">
                             <Button className="btn mb-2" id="query-btn" onClick={event => this.handleSubmit(event)}>Query</Button>
-                            <Button className="btn" id="saved-btn"><Link id="saved-link" to={"/saved"}>>> To Saved Articles</Link></Button>
+                            <Link id="saved-link" to={"/saved"}><Button className="btn" id="saved-btn">>> To Saved Articles</Button></Link>
                         </div>
                     </form>
                 </div>
