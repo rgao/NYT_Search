@@ -16,7 +16,8 @@ module.exports = (request, response) => {
                 var article = {};
 
                 article.title = $(element).find("a").children("h4").text();
-                article.url = "https://www.nytimes.com" + $(element).find(".css-ellvw9").children("a").attr("href");
+                article.url = "https://www.nytimes.com" + $(element).find("a").attr("href");
+                console.log(article.url)
                 article.time = $(element).children("time").text();
                 article.image = $(element).find("img").attr("src");
                 article.description = $(element).find(".css-16nhkrn").text();
