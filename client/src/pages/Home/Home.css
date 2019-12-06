@@ -3,7 +3,7 @@
 }
 
 form {
-    max-width: 400px;
+    max-width: 420px;
     background: repeating-linear-gradient(45deg, #666666, #cccccc 30%, #ffffff);
     border-radius: 2%;
     opacity: .9;
@@ -15,9 +15,22 @@ form {
     max-height: 5em;
 }
 
+input {
+    font-weight: bold;
+}
+
 .date-input {
     display: inline-block;
     width: 47%;
+}
+
+#invalid-topic {
+    color: red;
+}
+
+#invalid-date {
+    color: blue;
+    font-size: 12px;
 }
 
 #query-btn, #saved-btn {

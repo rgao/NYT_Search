@@ -12,7 +12,9 @@ class Home extends Component {
         startDate: "",
         endDate: "",
         topic: "",
-        result: ""
+        result: "",
+        topic_error: "",
+        date_error: ""
     };
 
     handleInputChange = event => {
@@ -30,7 +32,28 @@ class Home extends Component {
         let startDate = this.state.startDate;
         let endDate = this.state.endDate;
 
-        if (startDate !== "" && endDate !== "") {
+        if (topic === "") {
+            this.setState({ topic_error: "Please specify a topic" });
+            console.log(this.state)
+
+        } else {
+            this.setState({ topic_error: "" });
+            var today = new Date();
+
+            if (endDate === "") {
+                endDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+            };
+
+            if (startDate === "") {
+                startDate = today.getFullYear() + '-' + (today.getMonth()) + '-' + today.getDate();
+            };
+
+            if (this.state.startDate === "" && this.state.endDate === "") {
+                this.setState({ date_error: "Dates not fully entered. Showing results from the past month." })
+            } else {
+                this.setState({ date_error: "" })
+            }
+
             startDate = startDate.replace(/-/g, "");
             endDate = endDate.replace(/-/g, "");
 
@@ -57,7 +80,10 @@ class Home extends Component {
                         </header>
                         <div className="form-group">
                             <label>Topic</label>
-                            <input name="topic" value={this.state.topic} className="form-control" onChange={event => this.handleInputChange(event)} type="text" />
+                            <input name="topic" value={this.state.topic} className="form-control" onChange={event => this.handleInputChange(event)} type="text" placeholder="e.g. 2020" />
+                            <div id="invalid-topic">
+                                {this.state.topic_error}
+                            </div>
                         </div>
 
                         <div className="form-group date-input mr-3">
@@ -68,6 +94,10 @@ class Home extends Component {
                         <div className="form-group date-input">
                             <label>End at:</label>
                             <input name="endDate" value={this.state.endDate} className="form-control" onChange={event => this.handleInputChange(event)} type="date" />
+                        </div>
+
+                        <div className="px-2" id="invalid-date">
+                            {this.state.date_error}
                         </div>
 
                         <div className="btn-container text-center mt-2">
