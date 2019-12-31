@@ -4,6 +4,7 @@ import './App.css';
 import Nav from "./components/Nav/Nav.js";
 import Home from "./pages/Home/Home.js";
 import Saved from "./pages/Saved/Saved.js";
+import ArticleThread from "./pages/ArticleThread/ArticleThread.js"
 import Footer from "./components/Footer/Footer.js";
 
 class App extends Component {
@@ -15,6 +16,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/saved" component={Saved} />
+            <Route path ="/saved/:articleId" component={ArticleThread}/>
             <Route path="*" component={Home} />
             {/* <Route component={NoMatch} /> */}
           </Switch>

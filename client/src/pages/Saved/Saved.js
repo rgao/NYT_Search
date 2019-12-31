@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import API from "../../utils/API.js";
-// import { Row, Col } from 'react-bootstrap'
 import { Link } from "react-router-dom";
 import SavedArticleCard from "../../components/SavedArticleCard/SavedArticleCard.js"
 import './Saved.css'
@@ -14,12 +13,19 @@ class Saved extends Component {
     };
 
     componentDidMount() {
-        this.getSavedArticles()
+        this.getSavedArticles();
     };
 
     getSavedArticles = () => {
         API.getArticles()
             .then(response => this.setState({ savedArticles: response.data }, () => this.checkArticles()))
+            .catch(error => console.log(error));
+    };
+
+    handleUpdate = (id, comments) => {
+        console.log(comments)
+        API.updateArticle(id, comments)
+            .then(response => console.log(response.data))
             .catch(error => console.log(error));
     };
 
@@ -59,11 +65,14 @@ class Saved extends Component {
 
                 {this.state.savedArticles.map((article, i) => (
                     <SavedArticleCard
+                        article_id={article._id}
                         title={article.title}
                         url={article.url}
                         description={article.description}
                         author={article.author}
                         image={article.image}
+                        comments={article.commentary}
+                        update={this.handleUpdate}
                         delete={() => this.handleDelete(article._id)}
                         key={i} />
                 ))}

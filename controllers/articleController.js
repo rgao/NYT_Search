@@ -23,6 +23,14 @@ module.exports = {
         .catch(error => response.status(422).json(error));
     },
 
+    update: (request, response) => {
+        db.Article
+        .findById({ _id: request.params.id })
+        .update({ commentary: request.body })
+        .then(dbArticle => response.json(dbArticle))
+        .catch(error => response.status(422).json(error));
+    },
+
     remove: (request, response) => {
         db.Article
         .findById({ _id: request.params.id })

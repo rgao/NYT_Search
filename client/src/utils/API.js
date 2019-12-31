@@ -14,6 +14,10 @@ export default {
         return axios.post("/api/article/", saveData);
     },
 
+    updateArticle: (id, comments) => {
+        return axios.put("/api/article/" + id, comments);
+    },
+
     deleteArticle: id => {
         return axios.delete("/api/article/" + id);
     },

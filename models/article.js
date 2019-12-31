@@ -25,6 +25,11 @@ const articleSchema = new Schema({
     author: {
         type: String,
         required: false
+    },
+
+    commentary: {
+        type: Array,
+        required: false
     }
 });
 

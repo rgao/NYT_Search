@@ -1,3 +1,15 @@
+/* #article-author {
+    float: left;
+} */
+
+.article-img {
+    height: 100%
+}
+
 .btn-danger {
     background: linear-gradient(to bottom right, goldenrod, maroon)
+}
+
+.btn-warning {
+    background: linear-gradient(to bottom right, teal, goldenrod)
 }

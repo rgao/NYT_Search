@@ -1,0 +1,5 @@
+.thread-container {
+    background: repeating-linear-gradient(45deg, #666666, #cccccc 30%, #ffffff);
+    color: black;
+    position: relative
+}
