@@ -22,9 +22,9 @@ class ArticleThread extends Component {
 
     getArticle(id) {
         API.getArticle(id)
-            .then(response => this.setState({ 
+            .then(response => this.setState({
                 article: response.data,
-                comment_array: response.data.commentary 
+                comment_array: response.data.commentary
             })).catch(error => console.log(error));
 
         console.log(this.state.article);
@@ -58,7 +58,7 @@ class ArticleThread extends Component {
         });
 
         this.handleUpdate(id, this.state.comment_array);
-    }   
+    }
 
     handleUpdate = (id, comments) => {
         console.log(comments)
@@ -70,24 +70,32 @@ class ArticleThread extends Component {
     render() {
         return (
             <div className="container thread-container mt-5 px-0">
-                <Row className="mb-5 ml-0 mr-0">
-                    <Col size="12" md="6" lg="5" xl="4" className="mr-auto p-0 img-col">
+                <Row className="mb-4 ml-0 mr-0">
+                    <Col size="12" md="5" lg="4" xl="3" className="mr-auto p-0 img-col">
                         <a href={this.state.article.url}>
                             <img className="article-img" src={this.state.article.image} alt="" />
                         </a>
                     </Col>
 
-                    <textarea className="form-control mb-3" name="comment" rows="3" onChange={event => this.handleInputChange(event)} value={this.state.comment}></textarea>
-                    <Button className="btn btn-warning" onClick={()=>this.handleSubmit(this.state.article._id, this.state.comment)} disabled={this.state.comment_disable}>
-                        {this.state.saved_comment_message}
-                    </Button>
-
-                    <Col size="12" md="6" lg="7" xl="8" className="content-col">
+                    <Col size="12" md="7" lg="8" xl="9" className="content-col">
                         <header className="my-1" id="article-title">{this.state.article.title}</header>
                         <p className="mb-1" id="article-desc">{this.state.article.description}</p>
                         <p id="article-author">{this.state.article.author}</p>
-                        <Link to="/saved">Back to Saved Articles</Link>
+                        <Button className="back-btn btn-primary">
+                            <Link className="back-link" to="/saved">Back to Saved Articles</Link>
+                        </Button>
                     </Col>
+                </Row>
+
+                <Row className="comment-box mb-4">
+                    <Col />
+                    <Col className="comment-col" xs="10">
+                        <textarea className="form-control my-3" name="comment" rows="3" onChange={event => this.handleInputChange(event)} value={this.state.comment}></textarea>
+                        <Button className="btn btn-warning mb-3" onClick={() => this.handleSubmit(this.state.article._id, this.state.comment)} disabled={this.state.comment_disable}>
+                            {this.state.saved_comment_message}
+                        </Button>
+                    </Col>
+                    <Col />
                 </Row>
 
                 {this.state.comment_array.map((comment, i) => (

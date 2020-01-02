@@ -10,3 +10,24 @@
     border-right: 2px solid gray
 }
 
+.comment-col {
+    border-top: 3px solid gray;
+    border-bottom: 3px solid gray;
+}
+
+.back-btn {
+    position: absolute;
+    bottom: 0;
+    left: 1;
+}
+
+.back-link {
+    color: black;
+}
+
+.back-link:hover {
+    color: black;
+    text-decoration: none;
+}
+
+
