@@ -1,5 +1,12 @@
 .thread-container {
     background: repeating-linear-gradient(45deg, #666666, #cccccc 30%, #ffffff);
     color: black;
-    position: relative
+    position: relative;
+    border: 3px solid gray
 }
+
+.article-img {
+    border-bottom: 2px solid gray;
+    border-right: 2px solid gray
+}
+

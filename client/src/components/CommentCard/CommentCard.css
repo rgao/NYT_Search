@@ -1,0 +1,9 @@
+.comment-container {
+    border-left: 3px solid #333333;
+}
+
+.delete-comment {
+    color: maroon;
+    font-size: .8em;
+}
+

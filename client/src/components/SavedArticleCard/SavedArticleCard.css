@@ -1,6 +1,6 @@
-/* #article-author {
-    float: left;
-} */
+.article-author {
+    font-style: italic;
+}
 
 .article-img {
     height: 100%
@@ -12,4 +12,16 @@
 
 .btn-warning {
     background: linear-gradient(to bottom right, teal, goldenrod)
+}
+
+.thread-btn-container {
+    position: absolute;
+    bottom: 0;
+    left: 1;
+}
+
+.delete-btn-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }

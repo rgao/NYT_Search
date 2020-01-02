@@ -22,13 +22,6 @@ class Saved extends Component {
             .catch(error => console.log(error));
     };
 
-    handleUpdate = (id, comments) => {
-        console.log(comments)
-        API.updateArticle(id, comments)
-            .then(response => console.log(response.data))
-            .catch(error => console.log(error));
-    };
-
     handleDelete = (id) => {
         console.log(id)
         API.deleteArticle(id)
@@ -71,8 +64,6 @@ class Saved extends Component {
                         description={article.description}
                         author={article.author}
                         image={article.image}
-                        comments={article.commentary}
-                        update={this.handleUpdate}
                         delete={() => this.handleDelete(article._id)}
                         key={i} />
                 ))}
