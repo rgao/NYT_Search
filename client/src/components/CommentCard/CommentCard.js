@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Row, Col } from 'react-bootstrap'
+import { Button, Row, Col } from 'react-bootstrap'
 import "./CommentCard.css";
 
 class CommentCard extends Component {
     render() {
         return (
             <div className="comment-card">
-                <Row className="comment-row">
+                <Row className="comment-row mb-2">
                     <Col />
                     <Col xs="10" className="comment-container">
                         <p>{this.props.comment}</p>
@@ -16,7 +16,7 @@ class CommentCard extends Component {
                 <Row className="mb-4">
                     <Col />
                     <Col xs="10" className="delete-comment">
-                        <p>Delete Comment</p>
+                        <Button className="delete-comment-btn btn btn-danger" onClick={() => this.props.deleteComment()}>Delete Comment</Button>
                     </Col>
                     <Col />
                 </Row>

@@ -6,7 +6,21 @@ import "./ArticleThread.css"
 import CommentCard from "../../components/CommentCard/CommentCard.js"
 
 class ArticleThread extends Component {
-    state = {
+    // constructor (props){
+    //     super(props);
+
+    //     state = {
+    //         article: {},
+    //         comment: "",
+    //         comment_disable: true,
+    //         saved_comment_message: "Save Comment",
+    //         comment_array: []
+    //     }
+
+    //     this.handleDelete.bind(this);
+    // }
+
+     state = {
         article: {},
         comment: "",
         comment_disable: true,
@@ -60,6 +74,18 @@ class ArticleThread extends Component {
         this.handleUpdate(id, this.state.comment_array);
     }
 
+    handleDelete(id, comment) {
+        console.log(comment)
+        var comments = this.state.comment_array;
+        var comment_index = comments.indexOf(comment);
+        comments.splice(comment_index, 1);
+        this.setState({
+            comment_array: comments
+        });
+
+        this.handleUpdate(id, this.state.comment_array);
+    }
+
     handleUpdate = (id, comments) => {
         console.log(comments)
         API.updateArticle(id, comments)
@@ -100,7 +126,9 @@ class ArticleThread extends Component {
 
                 {this.state.comment_array.map((comment, i) => (
                     <CommentCard
+                        id={this.state.article._id}
                         comment={comment}
+                        deleteComment={() => this.handleDelete(this.state.article._id, comment)}
                         key={i} />
                 ))}
             </div>
