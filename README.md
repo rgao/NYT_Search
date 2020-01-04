@@ -1,6 +1,6 @@
 # About
 
-This project is a MERN (Mongo-Express-React-Node) app that scrapes articles from New York Times.
+This project is a MERN (Mongo-Express-React-Node) app that scrapes articles from New York Times. It is [deployed to Heroku here](https://nytscraperreact.herokuapp.com/).
 
 ## Features
 
