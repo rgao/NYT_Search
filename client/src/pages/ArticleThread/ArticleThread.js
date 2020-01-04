@@ -97,13 +97,13 @@ class ArticleThread extends Component {
         return (
             <div className="container thread-container mt-5 px-0">
                 <Row className="mb-4 ml-0 mr-0">
-                    <Col size="12" md="5" lg="4" xl="3" className="mr-auto p-0 img-col">
+                    <Col size="12" md="6" lg="5" xl="4" className="mr-auto p-0 img-col">
                         <a href={this.state.article.url}>
                             <img className="article-img" src={this.state.article.image} alt="" />
                         </a>
                     </Col>
 
-                    <Col size="12" md="7" lg="8" xl="9" className="content-col">
+                    <Col size="12" md="6" lg="7" xl="8" className="content-col">
                         <header className="my-1" id="article-title">{this.state.article.title}</header>
                         <p className="mb-1" id="article-desc">{this.state.article.description}</p>
                         <p id="article-author">{this.state.article.author}</p>
