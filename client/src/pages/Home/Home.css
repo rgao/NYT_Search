@@ -1,10 +1,5 @@
-.Home {
-    font-family: 'Berkshire Swash', cursive;
-}
-
 form {
     max-width: 420px;
-    background: repeating-linear-gradient(45deg, #666666, #cccccc 30%, #ffffff);
     border-radius: 2%;
     opacity: .9;
     font-family: 'Impact', fantasy;
@@ -16,6 +11,11 @@ form {
 }
 
 input {
+    font-weight: bold;
+}
+
+label {
+    font-family: 'Fredericka the Great', cursive;
     font-weight: bold;
 }
 
@@ -65,9 +65,7 @@ input {
 }
 
 .result-title {
-    font-family: 'Berkshire Swash', cursive;
+    font-family: 'Fredericka the Great', cursive;
     font-size: 2em;
-    background: -webkit-linear-gradient(silver, teal);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: bold;
 }

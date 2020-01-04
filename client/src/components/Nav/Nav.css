@@ -1,12 +1,15 @@
 .navbar-header {
     float: left;
     width: 100%;
-    font-family: 'Berkshire Swash', cursive;
+    font-family: 'Fredericka the Great', cursive;
     font-weight: bold;
     font-size: 3em;
-    background: -webkit-linear-gradient(white, gray);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: silver;
+}
+
+.navbar-header:hover {
+    text-decoration: none;
+    color: silver;
 }
 
 .navbar-header:hover {

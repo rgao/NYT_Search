@@ -7,7 +7,6 @@
 #saved-message {
     font-family: 'Berkshire Swash', cursive;
     font-size: 2em;
-    background: -webkit-linear-gradient(silver, goldenrod);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-family: 'Fredericka the Great', cursive;
+    font-weight: bold;
 }
