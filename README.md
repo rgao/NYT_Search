@@ -28,4 +28,4 @@ This project serves as a gateway application for enterprise-level products such 
 
 ## Preview
 
-[!Preview](client/src/utils/images/nyt_preview.png)
+![Preview](client/src/utils/images/nyt_preview.png)
